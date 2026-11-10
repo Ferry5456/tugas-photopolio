@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Ferryansah</title>
+    <!-- Font Awesome untuk Ikon Media Sosial -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(20, 27, 45, 0.75);
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-color: #38bdf8;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --gradient-btn: linear-gradient(135deg, #38bdf8 0%, #ec4899 100%);
+        }
+
+        .light-mode {
+            --bg-color: #f8fafc;
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --text-color: #0f172a;
+            --text-muted: #64748b;
+            --accent-color: #0284c7;
+            --border-color: rgba(0, 0, 0, 0.08);
+            --gradient-btn: linear-gradient(135deg, #0284c7 0%, #d946ef 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-top: 80px;
+            min-height: 100vh;
+        }
+
+        /* --- NAVBAR STYLES --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10%;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .navbar .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .theme-toggle-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+        }
+
+        /* --- CONTAINER STYLES --- */
+        .container {
+            max-width: 850px;
+            margin: 20px auto 60px;
+            padding: 0 20px;
+        }
+
+        /* --- HERO / PROFILE SECTION --- */
+        .profile-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 40px;
+            backdrop-filter: blur(12px);
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+
+        .profile-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.25);
+        }
+
+        .profile-title h1 {
+            font-size: 2.2rem;
+            line-height: 1.2;
+            margin-bottom: 5px;
+        }
+
+        .profile-title .role {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .about-text {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        /* --- BUTTONS & ACTIONS --- */
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .btn-gradient {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: var(--gradient-btn);
+            color: white;
+            font-weight: 600;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4);
+        }
+
+        /* --- SOCIAL ICON BAR --- */
+        .social-icons-bar {
+            display: flex;
+            gap: 12px;
+        }
+
+        .icon-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.2s;
+        }
+
+        .icon-btn:hover {
+            background: var(--accent-color);
+            color: #0f172a;
+            transform: translateY(-3px);
+        }
+
+        /* --- CONTENT SECTIONS --- */
+        section {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(12px);
+        }
+
+        h2 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-fallback {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        .video-fallback a {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                padding: 0 5%;
+            }
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .action-buttons {
+                justify-content: center;
+            }
+            .social-icons-bar {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="#" class="logo">Ferryansah<span>.dev</span></a>
+        <ul class="nav-links">
+            <li><a href="#tentang">Tentang</a></li>
+            <li><a href="#favorit">Favorit</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+            <li>
+                <button class="theme-toggle-btn" onclick="toggleTheme()" id="themeBtn">
+                    <i class="fa-solid fa-moon" id="themeIcon"></i>
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- HEADER / TENTANG SAYA CARD -->
+        <div class="profile-card" id="tentang">
+            <div class="profile-header">
+                <img src="Ferry.jpeg" alt="Foto Ferryansah" class="profile-img" onerror="this.src='https://via.placeholder.com/110'">
+                <div class="profile-title">
+                    <h1>Ferryansah</h1>
+                    <p class="role">Siswa RPL & Web Developer Pemula</p>
+                </div>
+            </div>
+
+            <!-- Teks Deskripsi -->
+            <p class="about-text">
+                Siswa kelas 11 jurusan Rekayasa Perangkat Lunak (RPL) di SMKN 6 Kota Tangerang Selatan. Antusias membangun aplikasi web interaktif, aplikasi mobile Android (Jetpack Compose), serta arsitektur basis data yang rapi dan efisien.
+            </p>
+
+            <!-- Tombol Aksi -->
+            <div class="action-buttons">
+                <a href="#favorit" class="btn-gradient">
+                    <i class="fa-solid fa-circle-play"></i> Musik & Video Favorit
+                </a>
+            </div>
+
+            <!-- Ikon Sosial Media (Hanya Ikon LinkedIn dan Instagram) -->
+            <div class="social-icons-bar">
+                <a href="https://www.linkedin.com/in/ferryansah-undefined-a7aaa8448/" target="_blank" class="icon-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/str67890?mdxt=MXVidHQ4bWQ2MTd3cg==" target="_blank" class="icon-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <!-- BAGIAN FAVORIT (MUSIK & VIDEO) -->
+        <div id="favorit">
+            <section>
+                <h2><i class="fa-solid fa-music"></i> Musik Favorit Saya</h2>
+                <p><strong>The Flowers There… Are Always in Full Bloom (feat. Eda)</strong> - OPUS: Echo of Starsong</p>
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube-nocookie.com/embed/p7sNhzs8HpY" 
+                        title="The Flowers There Are Always in Full Bloom" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <p class="video-fallback">
+                    <a href="https://youtu.be/P72mYvI8n8o" target="_blank">👉 Buka musik di YouTube jika tidak memutar</a>
+                </p>
+            </section>
+
+            <section>
+                <h2><i class="fa-solid fa-video"></i> Video Favorit Saya</h2>
+                <p><strong>[Project Moon fan film] Ludicrum/ 神聖喜劇</strong></p>
+                <div class="video-container">
+                    <iframe 
+                        src="https://youtu.be/AEc3tbOKn4o?si=lhi7W85xc-jcLunE" 
+                        title="Centuries of Gold MAD" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <p class="video-fallback">
+                    <a href="https://youtu.be/p7sNhzs8HpY" target="_blank">👉 Buka video di YouTube jika tidak memutar</a>
+                </p>
+            </section>
+        </div>
+
+        <!-- BAGIAN KONTAK -->
+        <section id="kontak" style="text-align: center;">
+            <h2><i class="fa-solid fa-paper-plane"></i> Hubungi Saya</h2>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">Silakan terhubung dengan saya melalui media sosial di bawah ini:</p>
+            <div class="social-icons-bar" style="justify-content: center;">
+                <a href="https://www.linkedin.com/in/ferryansah-undefined-a7aaa8448/" target="_blank" class="icon-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/str67890?mdxt=MXVidHQ4bWQ2MTd3cg==" target="_blank" class="icon-btn"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.getElementById('themeIcon');
+            
+            body.classList.toggle('light-mode');
+            
+            if (body.classList.contains('light-mode')) {
+                icon.className = 'fa-solid fa-sun';
+            } else {
+                icon.className = 'fa-solid fa-moon';
+            }
+        }
+    </script>
+</body>
+</html>
